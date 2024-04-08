@@ -69,7 +69,7 @@ namespace Revit.Elements
         /// </summary>
         public long Id
         {
-            get { return InternalParameter.Id.Value; }
+            get { return InternalParameter.Id.IntegerValue; }
         }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace Revit.Elements
         public static Elements.Parameter ParameterByName(Elements.Element element, string name)
         {
             var param = element.Parameters.Cast<Parameter>()
-                .OrderBy(x => x.InternalParameter.Id.Value)
+                .OrderBy(x => x.InternalParameter.Id.IntegerValue)
                 .FirstOrDefault(x => x.InternalParameter.Definition.Name == name);
 
             if (param == null)

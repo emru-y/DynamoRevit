@@ -377,7 +377,7 @@ namespace DSRevitNodesUI
             if (this.storedId != null)
             {
                 XmlElement outEl = nodeElement.OwnerDocument.CreateElement("familyid");
-                outEl.SetAttribute("value", this.storedId.Value.ToString(CultureInfo.InvariantCulture));
+                outEl.SetAttribute("value", this.storedId.IntegerValue.ToString(CultureInfo.InvariantCulture));
                 nodeElement.AppendChild(outEl);
 
                 XmlElement param = nodeElement.OwnerDocument.CreateElement("index");
@@ -407,7 +407,7 @@ namespace DSRevitNodesUI
                     {
                         continue;
                     }
-                    element = doc.GetElement(new ElementId(id));
+                    element = doc.GetElement(new ElementId((int)id));
 
                 }
                 else if (subNode.Name.Equals("index"))
@@ -843,7 +843,7 @@ namespace DSRevitNodesUI
                 "ByElementId",
                 new List<AssociativeNode>
                 {
-                    AstFactory.BuildIntNode(((Level)Items[SelectedIndex].Item).Id.Value)
+                    AstFactory.BuildIntNode(((Level)Items[SelectedIndex].Item).Id.IntegerValue)
                 });
 
             return new[] { AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), node) };
@@ -905,7 +905,7 @@ namespace DSRevitNodesUI
                 "ByElementId",
                 new List<AssociativeNode>
                 {
-                    AstFactory.BuildIntNode(((Element)Items[SelectedIndex].Item).Id.Value)
+                    AstFactory.BuildIntNode(((Element)Items[SelectedIndex].Item).Id.IntegerValue)
                 });
 
             return new[] { AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), node) };

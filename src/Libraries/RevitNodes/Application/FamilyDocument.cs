@@ -44,7 +44,7 @@ namespace Revit.Application
             get
             {
                 Autodesk.Revit.DB.Category internalCategory = OwnerFamily.InternalFamily.FamilyCategory;
-                return Elements.Category.ById(internalCategory.Id.Value);
+                return Elements.Category.ById(internalCategory.Id.IntegerValue);
             }
         }
 
@@ -154,7 +154,7 @@ namespace Revit.Application
                     return FamilyManager.CurrentType.AsString(familyParameter);
 
                 case Autodesk.Revit.DB.StorageType.ElementId:
-                    Elements.Element element = ElementSelector.ByElementId(FamilyManager.CurrentType.AsElementId(familyParameter).Value);
+                    Elements.Element element = ElementSelector.ByElementId(FamilyManager.CurrentType.AsElementId(familyParameter).IntegerValue);
                     return element;
                 default:
                     return null;
@@ -229,7 +229,7 @@ namespace Revit.Application
             if (familyParameter == null)
                 throw new InvalidOperationException(Properties.Resources.ParameterNotFound);
 
-            long parameterId = familyParameter.Id.Value;
+            long parameterId = familyParameter.Id.IntegerValue;
             TransactionManager.Instance.EnsureInTransaction(this.InternalDocument);
             FamilyManager.RemoveParameter(familyParameter);
             TransactionManager.Instance.TransactionTaskDone();

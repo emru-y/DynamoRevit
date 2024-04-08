@@ -53,7 +53,7 @@ namespace Revit.Elements
         {
             get
             {
-                return InternalCategory.Id.Value;
+                return InternalCategory.Id.IntegerValue;
             }
         }
 

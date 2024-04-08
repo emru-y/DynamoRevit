@@ -32,7 +32,7 @@ namespace Revit.Elements
         public LevelTraceData(Level lev, string inputName) :
             base()
         {
-            this.IntID = lev.InternalElement.Id.Value;
+            this.IntID = lev.InternalElement.Id.IntegerValue;
             this.StringID = lev.UniqueId;
             this.InputName = inputName;
         }

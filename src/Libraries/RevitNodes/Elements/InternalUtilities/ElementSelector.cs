@@ -80,7 +80,7 @@ namespace Revit.Elements
         private static Autodesk.Revit.DB.Element InternalGetElementById(long id)
         {
             Autodesk.Revit.DB.Element ele;
-            var eleId = new ElementId(id);
+            var eleId = new ElementId((int)id);
 
             if (!Element.Document.TryGetElement(eleId, out ele))
             {

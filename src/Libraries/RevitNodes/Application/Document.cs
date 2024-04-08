@@ -126,7 +126,7 @@ namespace Revit.Application
             if (purgedElementIds.Count == 0)
                 throw new InvalidOperationException(Properties.Resources.NoElementsToPurge);
 
-            return purgedElementIds.Select(x => x.Value).ToList();
+            return purgedElementIds.Select(x => (long)x.IntegerValue).ToList();
         }
 
         private List<ElementId> PurgeMaterials()

@@ -183,7 +183,7 @@ namespace Revit.Elements
         {
             get
             {
-                return this.InternalMaterial.CutForegroundPatternId.Value;
+                return this.InternalMaterial.CutForegroundPatternId.IntegerValue;
             }
         }
 

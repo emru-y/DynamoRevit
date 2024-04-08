@@ -254,7 +254,7 @@ namespace Revit.AnalysisDisplay
             SpatialFieldManager sfm = null;
 
             // if we can't get the sfm, return null
-            if (!Document.TryGetElement(new ElementId(sfmId), out sfm)) 
+            if (!Document.TryGetElement(new ElementId((int)sfmId), out sfm)) 
                 return null;
 
             return new Tuple<SpatialFieldManager, List<int>>(sfm, primitiveIds);
@@ -274,7 +274,7 @@ namespace Revit.AnalysisDisplay
 
             var idPair = new SpmPrimitiveIdPair
             {
-                SpatialFieldManagerID = manager.Id.Value,
+                SpatialFieldManagerID = manager.Id.IntegerValue,
                 PrimitiveIds = primitiveIds
             };
             ElementBinder.SetRawDataForTrace(idPair);

@@ -35,10 +35,10 @@ namespace Revit.Elements
         public DirectShapeState(DirectShape ds, string syncId, ElementId materialId) :
             base()
         {
-            this.IntID = ds.InternalElement.Id.Value;
+            this.IntID = ds.InternalElement.Id.IntegerValue;
             this.StringID = ds.UniqueId;
             this.syncId = syncId;
-            this.materialId = materialId.Value;
+            this.materialId = materialId.IntegerValue;
         }
 
         public DirectShapeState(SerializationInfo info, StreamingContext context) :
@@ -135,7 +135,7 @@ namespace Revit.Elements
 
                 //if the cateogryID has changed, we cannot continue to rebind and instead
                 //will make a new directShape
-                if (category.Id == this.InternalElement.Category.Id.Value)
+                if (category.Id == this.InternalElement.Category.Id.IntegerValue)
                 {
                     //set the shape geometry of the directshape, this method passes in the actual input geo
                     //and checks the directShapeState object at the elementId key in the input geo tags dictionary. 
@@ -145,7 +145,7 @@ namespace Revit.Elements
                     //we also check the material, if it's different than the currently assigned material
                     //then we need to rebuild the geo so that a new material is applied
                     //
-                    this.InternalSetShape(shapeReference, new ElementId(material.Id), oldShape.Item2.syncId);
+                    this.InternalSetShape(shapeReference, new ElementId((int)material.Id), oldShape.Item2.syncId);
                     this.InternalSetName(shapeReference, shapeName, material, category);
                     return;
                 }
@@ -157,17 +157,17 @@ namespace Revit.Elements
             Autodesk.Revit.DB.DirectShape ds;
 
             //generate the geometry correctly depending on the type of geo
-            var tessellatedShape = GenerateTessellatedGeo(shapeReference, new ElementId(material.Id));
+            var tessellatedShape = GenerateTessellatedGeo(shapeReference, new ElementId((int)material.Id));
 
             //actually construct the directshape revit element
             ds = NewDirectShape(tessellatedShape,
-                Document, new ElementId(category.Id),
+                Document, new ElementId((int)category.Id),
                 DirectShape.DYNAMO_DIRECTSHAPE_APP_GUID.ToString(), shapeName);
 
             InternalSetDirectShape(ds);
             InternalSetName(shapeReference, shapeName, material, category);
             //generate a new syncId for trace
-            var traceData = new DirectShapeState(this, Guid.NewGuid().ToString(), new ElementId(material.Id));
+            var traceData = new DirectShapeState(this, Guid.NewGuid().ToString(), new ElementId((int)material.Id));
 
             //add the elementID:tracedata to the tags dictionary on the real protogeometry input
             shapeReference.Tags.AddTag(this.InternalElementId.ToString(), traceData);
@@ -290,7 +290,7 @@ namespace Revit.Elements
             //first lookup the state on the input geometry
             var previousState = shapeReference.Tags.LookupTag(this.InternalElementId.ToString()) as DirectShapeState;
             //then compare values
-            if (previousState != null && previousState.materialId == materialId.Value && previousState.syncId == currentSyncId)
+            if (previousState != null && previousState.materialId == materialId.IntegerValue && previousState.syncId == currentSyncId)
             {
                 return;
             }
