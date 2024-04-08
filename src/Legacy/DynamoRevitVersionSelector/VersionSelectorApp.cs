@@ -305,7 +305,7 @@ namespace Dynamo.Applications
             }
 
             Func<string, string> fileLocator =
-                p => Path.Combine(p, "Revit", "DynamoRevitDS.dll");
+                p => Path.Combine(p, string.Format("Revit-{0}", revitVersion), "DynamoRevitDS.dll");
 
             var methodParams = new object[] { debugPath, fileLocator };
 
