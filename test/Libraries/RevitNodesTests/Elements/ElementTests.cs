@@ -4,7 +4,6 @@ using System.Linq;
 
 using Autodesk.DesignScript.Geometry;
 using Autodesk.Revit.DB;
-
 using NUnit.Framework;
 
 using Revit.Elements;
@@ -159,7 +158,7 @@ namespace RevitNodesTests.Elements
 
             foreach (var refer in refs)
             {
-                Assert.AreEqual(46874L, refer.InternalReference.ElementId.Value);
+                Assert.AreEqual(46874L, refer.InternalReference.ElementId.IntegerValue);
             }
         }
 
@@ -191,7 +190,7 @@ namespace RevitNodesTests.Elements
 
             foreach (var refer in refs)
             {
-                Assert.AreEqual(46874L, refer.InternalReference.ElementId.Value);
+                Assert.AreEqual(46874L, refer.InternalReference.ElementId.IntegerValue);
             }
         }
 
@@ -218,7 +217,7 @@ namespace RevitNodesTests.Elements
 
             foreach (var refer in refs)
             {
-                Assert.AreEqual(186006L, refer.InternalReference.ElementId.Value);
+                Assert.AreEqual(186006L, refer.InternalReference.ElementId.IntegerValue);
             }
         }
 
@@ -241,7 +240,7 @@ namespace RevitNodesTests.Elements
 
             foreach (var refer in refs)
             {
-                Assert.AreEqual(32107L, refer.InternalReference.ElementId.Value);
+                Assert.AreEqual(32107L, refer.InternalReference.ElementId.IntegerValue);
             }
         }
 
@@ -256,7 +255,7 @@ namespace RevitNodesTests.Elements
 
             foreach (var refer in refs)
             {
-                Assert.AreEqual(32107L, refer.InternalReference.ElementId.Value);
+                Assert.AreEqual(32107L, refer.InternalReference.ElementId.IntegerValue);
             }
         }
 

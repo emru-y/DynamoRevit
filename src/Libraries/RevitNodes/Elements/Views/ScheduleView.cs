@@ -153,15 +153,15 @@ namespace Revit.Elements.Views
             switch (type)
             {
                 case ScheduleType.KeySchedule:
-                    viewSchedule = Autodesk.Revit.DB.ViewSchedule.CreateKeySchedule(doc, new Autodesk.Revit.DB.ElementId(category.Id));
+                    viewSchedule = Autodesk.Revit.DB.ViewSchedule.CreateKeySchedule(doc, new Autodesk.Revit.DB.ElementId((int)category.Id));
                     viewSchedule.Name = name;
                     break;
                 case ScheduleType.RegularSchedule:
-                    viewSchedule = Autodesk.Revit.DB.ViewSchedule.CreateSchedule(doc, new Autodesk.Revit.DB.ElementId(category.Id));
+                    viewSchedule = Autodesk.Revit.DB.ViewSchedule.CreateSchedule(doc, new Autodesk.Revit.DB.ElementId((int)category.Id));
                     viewSchedule.Name = name;
                     break;
                 case ScheduleType.MaterialTakeoff:
-                    viewSchedule = Autodesk.Revit.DB.ViewSchedule.CreateMaterialTakeoff(doc, new Autodesk.Revit.DB.ElementId(category.Id));
+                    viewSchedule = Autodesk.Revit.DB.ViewSchedule.CreateMaterialTakeoff(doc, new Autodesk.Revit.DB.ElementId((int)category.Id));
                     viewSchedule.Name = name;
                     break;
             }

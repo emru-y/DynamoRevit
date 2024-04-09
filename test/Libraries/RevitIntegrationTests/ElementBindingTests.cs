@@ -108,7 +108,7 @@ namespace RevitSystemTests
                 return null;
             var data = traceDataList[0].GetLeftMostData();
             var id = data as SerializableId;
-            return new ElementId(id.IntID);
+            return new ElementId((int)id.IntID);
         }
 
         /// <summary>
@@ -449,7 +449,7 @@ namespace RevitSystemTests
             var selNodes = model.CurrentWorkspace.Nodes.Where(x => x is ElementSelection<Autodesk.Revit.DB.Element>);
             var selNode = selNodes.First() as ElementSelection<Autodesk.Revit.DB.Element>;
 
-            var elId = new ElementId(184273L);
+            var elId = new ElementId((int)184273L);
             var el = DocumentManager.Instance.CurrentDBDocument.GetElement(elId);
             //selNode.SelectionResults.Add(el);
 

@@ -26,7 +26,7 @@ namespace RevitNodesTests.Elements
 
             // use the element factory to do the same
             var famId = family.Id;
-            var famFromFact = Revit.Elements.ElementSelector.ByElementId(famId.Value, true);
+            var famFromFact = Revit.Elements.ElementSelector.ByElementId(famId.IntegerValue, true);
 
             Assert.NotNull(famFromFact);
             Assert.IsAssignableFrom(typeof(Family), famFromFact);
@@ -71,7 +71,7 @@ namespace RevitNodesTests.Elements
 
             // use the element factory to do the same
             var famSymEleId = symbol.Id;
-            var famSymFromFact = Revit.Elements.ElementSelector.ByElementId(famSymEleId.Value, true);
+            var famSymFromFact = Revit.Elements.ElementSelector.ByElementId(famSymEleId.IntegerValue, true);
 
             Assert.NotNull(famSymFromFact);
             Assert.IsAssignableFrom(typeof(FamilyType), famSymFromFact);
@@ -122,7 +122,7 @@ namespace RevitNodesTests.Elements
             var roof = DocumentManager.Instance.ElementsOfType<RoofBase>().FirstOrDefault();
             Assert.NotNull(roof);
 
-            var el = ElementSelector.ByElementId(roof.Id.Value);
+            var el = ElementSelector.ByElementId(roof.Id.IntegerValue);
             Assert.NotNull(el);
             Assert.True(el.IsRevitOwned);
 

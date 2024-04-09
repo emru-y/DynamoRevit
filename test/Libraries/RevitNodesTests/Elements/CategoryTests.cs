@@ -19,7 +19,7 @@ namespace RevitNodesTests.Elements
         {
             var cat = Category.ByName("OST_PointClouds");
             Assert.NotNull(cat);
-            Assert.AreEqual(cat.Id, cat.InternalCategory.Id.Value);
+            Assert.AreEqual(cat.Id, cat.InternalCategory.Id.IntegerValue);
         }
 
         [Test]
@@ -28,7 +28,7 @@ namespace RevitNodesTests.Elements
         {
             var cat = Category.ByName("PointClouds");
             Assert.NotNull(cat);
-            Assert.AreEqual(cat.Id, cat.InternalCategory.Id.Value);
+            Assert.AreEqual(cat.Id, cat.InternalCategory.Id.IntegerValue);
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace RevitNodesTests.Elements
         {
             var cat = Category.ByName("Point Clouds");
             Assert.NotNull(cat);
-            Assert.AreEqual(cat.Id, cat.InternalCategory.Id.Value);
+            Assert.AreEqual(cat.Id, cat.InternalCategory.Id.IntegerValue);
         }
 
         [Test]

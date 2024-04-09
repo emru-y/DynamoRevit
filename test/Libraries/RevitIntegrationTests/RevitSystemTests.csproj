@@ -47,6 +47,9 @@
       <HintPath>$(PACKAGESPATH)\DynamoVisualProgramming.WpfUILibrary\lib\net48\DynamoCoreWpf.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DynamoServices, Version=2.19.0.6156, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\..\..\src\packages\DynamoVisualProgramming.DynamoServices.2.19.0.6156\lib\netstandard2.0\DynamoServices.dll</HintPath>
+    </Reference>
     <Reference Include="DynamoUtilities">
       <HintPath>$(PACKAGESPATH)\DynamoVisualProgramming.Core\lib\net48\DynamoUtilities.dll</HintPath>
       <Private>False</Private>
@@ -63,10 +66,6 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="ProtoGeometry">
       <HintPath>$(PACKAGESPATH)\DynamoVisualProgramming.ZeroTouchLibrary\lib\net48\ProtoGeometry.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DynamoServices">
-      <HintPath>$(PACKAGESPATH)\DynamoVisualProgramming.DynamoServices\lib\netstandard2.0\DynamoServices.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPI">
@@ -235,12 +234,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="RevitTestConfiguration.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>RevitTestConfiguration.xml</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\logo.png" />
     <Content Include="RevitTestConfiguration.xml">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

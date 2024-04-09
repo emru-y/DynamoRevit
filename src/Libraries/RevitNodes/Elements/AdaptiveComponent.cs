@@ -598,7 +598,7 @@ namespace Revit.Elements
                 var elementManager = ElementIDLifecycleManager<long>.GetInstance();
                 foreach (var component in components)
                 {
-                    elementManager.UnRegisterAssociation(component.InternalElementId.Value, component);
+                    elementManager.UnRegisterAssociation(component.InternalElementId.IntegerValue, component);
                 }
                 foreach (var instance in instances)
                 {

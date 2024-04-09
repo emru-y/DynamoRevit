@@ -35,7 +35,7 @@
     <NoWarn>618</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -56,9 +56,8 @@
       <HintPath>$(PACKAGESPATH)\DynamoVisualProgramming.Core\lib\net48\DynamoApplications.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DynamoServices">
-      <HintPath>$(PACKAGESPATH)\DynamoVisualProgramming.DynamoServices\lib\netstandard2.0\DynamoServices.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="DynamoServices, Version=2.19.0.6156, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\DynamoVisualProgramming.DynamoServices.2.19.0.6156\lib\netstandard2.0\DynamoServices.dll</HintPath>
     </Reference>
     <Reference Include="Greg">
       <HintPath>$(PACKAGESPATH)\Greg\lib\net48\Greg.dll</HintPath>
@@ -188,6 +187,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Category.Revit.svg" />
     <EmbeddedResource Include="Resources\LayoutSpecs.json" />
+    <Content Include="images\logo.png" />
     <Content Include="Resources\logo_square_32x32.png" />
     <Content Include="Resources\logo_square_64x64.png" />
   </ItemGroup>
@@ -200,6 +200,9 @@
       <Project>{e4701f9e-41ab-4044-8166-85d924feb632}</Project>
       <Name>RevitServices</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

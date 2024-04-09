@@ -87,7 +87,7 @@ namespace RevitNodesTests.Elements
             var typeElement = Revit.Elements.ElementType.ByName(elementTypeName);
             Assert.Throws<System.ArgumentNullException>(() => Revit.Elements.ElementType.ByName(emptyTypeName));
             Assert.Throws<KeyNotFoundException>(() => Revit.Elements.ElementType.ByName(notFoundTypeName));
-            long typeId = typeElement.InternalElement.Id.Value;
+            long typeId = typeElement.InternalElement.Id.IntegerValue;
 
             // Assert
             Assert.AreEqual(expectedId, typeId);

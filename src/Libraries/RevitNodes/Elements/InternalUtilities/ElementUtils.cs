@@ -64,7 +64,7 @@ namespace Revit.Elements.InternalUtilities
             switch (param.StorageType)
             {
                 case StorageType.ElementId:
-                    long valueId = param.AsElementId().Value;
+                    long valueId = param.AsElementId().IntegerValue;
                     if (valueId > 0)
                     {
                         // When the element is obtained here, to convert it to our element wrapper, it
@@ -77,7 +77,7 @@ namespace Revit.Elements.InternalUtilities
                     }
                     else
                     {
-                        long paramId = param.Id.Value;
+                        long paramId = param.Id.IntegerValue;
                         if (paramId == (long)BuiltInParameter.ELEM_CATEGORY_PARAM || paramId == (long)BuiltInParameter.ELEM_CATEGORY_PARAM_MT)
                         {
                             var categories = DocumentManager.Instance.CurrentDBDocument.Settings.Categories;

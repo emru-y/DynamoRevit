@@ -347,7 +347,7 @@ namespace Revit.Elements
                {
                   if (path != null)
                   {
-                     _ = elementManager.UnRegisterAssociation(path.InternalElementId.Value, path);
+                     _ = elementManager.UnRegisterAssociation(path.InternalElementId.IntegerValue, path);
                      Document.Delete(path.InternalElementId);
                   }
                }
@@ -404,7 +404,7 @@ namespace Revit.Elements
                {
                   if (path != null)
                   {
-                     _ = elementManager.UnRegisterAssociation(path.InternalElementId.Value, path);
+                     _ = elementManager.UnRegisterAssociation(path.InternalElementId.IntegerValue, path);
                      Document.Delete(path.InternalElementId);
                   }
                }

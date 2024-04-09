@@ -292,7 +292,7 @@ namespace Revit.AnalysisDisplay
             SpatialFieldManager sfm = null;
 
             // if we can't get the sfm, return null
-            if (!Document.TryGetElement(new ElementId(sfmId), out sfm))
+            if (!Document.TryGetElement(new ElementId((int)sfmId), out sfm))
                 return null;
 
             return new Tuple<SpatialFieldManager, Dictionary<Reference, int>>(sfm, keyValues);
@@ -312,7 +312,7 @@ namespace Revit.AnalysisDisplay
 
             var idPair = new SpmRefPrimitiveIdListPair
             {
-                SpatialFieldManagerID = manager.Id.Value,
+                SpatialFieldManagerID = manager.Id.IntegerValue,
                 RefIdPairs = keyValues
             };
             ElementBinder.SetRawDataForTrace(idPair);

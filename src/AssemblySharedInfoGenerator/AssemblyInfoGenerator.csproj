@@ -41,6 +41,9 @@
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DynamoServices, Version=2.19.0.6156, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\DynamoVisualProgramming.DynamoServices.2.19.0.6156\lib\netstandard2.0\DynamoServices.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -62,9 +65,13 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>AssemblySharedInfo.cs</LastGenOutput>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

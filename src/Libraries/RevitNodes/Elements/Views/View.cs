@@ -325,7 +325,7 @@ namespace Revit.Elements.Views
                 List<Revit.Filter.ParameterFilterElement> filters = new List<Filter.ParameterFilterElement>();
                 foreach (ElementId id in this.InternalView.GetFilters())
                 {
-                    Element element = Revit.Elements.ElementSelector.ByElementId(id.Value);
+                    Element element = Revit.Elements.ElementSelector.ByElementId(id.IntegerValue);
                     filters.Add((Revit.Filter.ParameterFilterElement)element);
                 }
                 return filters;
@@ -387,7 +387,7 @@ namespace Revit.Elements.Views
         /// <returns name="view">View</returns>
         public Revit.Elements.Views.View SetCategoryOverrides(Category category, Revit.Filter.OverrideGraphicSettings overrides, bool hide = false)
         {
-            Autodesk.Revit.DB.ElementId catId = new ElementId(category.Id);
+            Autodesk.Revit.DB.ElementId catId = new ElementId((int)category.Id);
             if (!this.InternalView.IsCategoryOverridable(catId))
             {
                 throw new ArgumentException(Properties.Resources.CategoryVisibilityOverrideError);

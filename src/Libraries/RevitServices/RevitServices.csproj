@@ -50,9 +50,8 @@ limitations under the License.
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DynamoServices">
-      <HintPath>$(PACKAGESPATH)\DynamoVisualProgramming.DynamoServices\lib\netstandard2.0\DynamoServices.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="DynamoServices, Version=2.19.0.6156, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\..\packages\DynamoVisualProgramming.DynamoServices.2.19.0.6156\lib\netstandard2.0\DynamoServices.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Prism">
       <HintPath>$(PACKAGESPATH)\Prism\lib\NET40\Microsoft.Practices.Prism.dll</HintPath>
@@ -121,6 +120,12 @@ limitations under the License.
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

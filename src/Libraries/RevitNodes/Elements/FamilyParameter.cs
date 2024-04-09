@@ -35,7 +35,7 @@ namespace Revit.Elements
         /// <summary>
         /// Get the parameter's element Id
         /// </summary>
-        public long Id => InternalFamilyParameter.Id.Value;
+        public long Id => InternalFamilyParameter.Id.IntegerValue;
 
         /// <summary>
         /// Get the parameter's spec type

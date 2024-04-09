@@ -33,6 +33,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DynamoServices, Version=2.19.0.6156, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\..\packages\DynamoVisualProgramming.DynamoServices.2.19.0.6156\lib\netstandard2.0\DynamoServices.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="RevitAPI">
@@ -78,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="logo_about.png" />
+    <None Include="packages.config" />
     <None Include="Resources\dynamo_32x32.png" />
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +93,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.en-US.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

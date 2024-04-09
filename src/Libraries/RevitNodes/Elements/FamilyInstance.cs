@@ -636,7 +636,7 @@ namespace Revit.Elements
             {
                 var rotateAngle = newRotationAngle - oldRotationAngles[0];
                 var axis = Autodesk.Revit.DB.Line.CreateUnbound(oldTransform.Origin, oldTransform.BasisZ);
-                Autodesk.Revit.DB.ElementTransformUtils.RotateElement(Document, new Autodesk.Revit.DB.ElementId(Id), axis, -rotateAngle);
+                Autodesk.Revit.DB.ElementTransformUtils.RotateElement(Document, new Autodesk.Revit.DB.ElementId((int)Id), axis, -rotateAngle);
             }
 
             TransactionManager.Instance.TransactionTaskDone();

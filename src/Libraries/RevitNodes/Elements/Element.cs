@@ -56,7 +56,7 @@ namespace Revit.Elements
             long id = 0;
             if (null != element)
             {
-                id = element.Id.Value;
+                id = element.Id.IntegerValue;
                 count = elementManager.GetRegisteredCount(id);
             }
             try
@@ -160,7 +160,7 @@ namespace Revit.Elements
         {
             get
             {
-                return InternalElementId.Value;
+                return InternalElementId.IntegerValue;
             }
         }
 
@@ -392,7 +392,7 @@ namespace Revit.Elements
 
                 // Delete the element, collecting the id's deleted.
                 deletedElements = document.Delete(element.InternalElementId)
-                        .Select(x => x.Value).ToArray<long>();
+                        .Select(x => (long)x.IntegerValue).ToArray<long>();
             }
             finally
             {
@@ -441,7 +441,7 @@ namespace Revit.Elements
             var allParams =
             InternalElement.Parameters.Cast<Autodesk.Revit.DB.Parameter>()
                 .Where(x => string.CompareOrdinal(x.Definition.Name, parameterName) == 0)
-                .OrderBy(x => x.Id.Value);
+                .OrderBy(x => x.Id.IntegerValue);
 
             var param = allParams.FirstOrDefault(x => x.IsReadOnly == false) ?? allParams.FirstOrDefault();
 
@@ -836,7 +836,7 @@ namespace Revit.Elements
                 if (null == InternalElementId)
                     return false;
 
-                return !ElementIDLifecycleManager<long>.GetInstance().IsRevitDeleted(InternalElementId.Value);
+                return !ElementIDLifecycleManager<long>.GetInstance().IsRevitDeleted(InternalElementId.IntegerValue);
             }
         }
 

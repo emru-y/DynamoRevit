@@ -24,7 +24,7 @@ namespace RevitNodesTests.Elements
 
             // Act
             var group = Group.ByElements(elementsToGroup);
-            var memberIds = group.InternalGroup.GetMemberIds().Select(id => id.Value).ToList();
+            var memberIds = group.InternalGroup.GetMemberIds().Select(id => id.IntegerValue).ToList();
 
             // Assert
             Assert.IsNotNull(group);

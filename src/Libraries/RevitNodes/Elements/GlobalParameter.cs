@@ -174,7 +174,7 @@ namespace Revit.Elements
                     else if (valueWrapper.GetType() == typeof(Autodesk.Revit.DB.ElementIdParameterValue))
                     {
                         var valueElementId = valueWrapper as Autodesk.Revit.DB.ElementIdParameterValue;
-                        return valueElementId.Value.Value;
+                        return valueElementId.Value.IntegerValue;
                     }
                     else if (valueWrapper.GetType() == typeof(Autodesk.Revit.DB.NullParameterValue))
                     {
@@ -259,7 +259,7 @@ namespace Revit.Elements
                 Autodesk.Revit.DB.Document document = Application.Document.Current.InternalDocument;
                 TransactionManager.Instance.EnsureInTransaction(document);
 
-                Autodesk.Revit.DB.ElementId id = new Autodesk.Revit.DB.ElementId(elementId);
+                Autodesk.Revit.DB.ElementId id = new Autodesk.Revit.DB.ElementId((int)elementId);
                 parameter.InternalGlobalParameter.SetValue(new Autodesk.Revit.DB.ElementIdParameterValue(id));              
 
                 TransactionManager.Instance.TransactionTaskDone();

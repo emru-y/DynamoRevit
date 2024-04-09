@@ -99,7 +99,7 @@ namespace RevitServices.Persistence
             foreach (Element element in elements)
             {
                 StringIDs.Add(element.UniqueId);
-                IntIDs.Add(element.Id.Value);
+                IntIDs.Add(element.Id.IntegerValue);
             }
         }
 
@@ -210,7 +210,7 @@ namespace RevitServices.Persistence
                 return null; //There was no usable data in the trace cache
 
             var traceDataInt = id.IntID;
-            return new Autodesk.Revit.DB.ElementId(traceDataInt);
+            return new Autodesk.Revit.DB.ElementId((int)traceDataInt);
         }
 
         /// <summary>
@@ -318,7 +318,7 @@ namespace RevitServices.Persistence
             if (!IsEnabled) return;
 
             SerializableId id = new SerializableId();
-            id.IntID = elementId.Value;
+            id.IntID = elementId.IntegerValue;
             id.StringID = elementUUID.UUID;
 
             // if we're mutating the current Element id, that means we need to 
@@ -504,7 +504,7 @@ namespace RevitServices.Persistence
                             {
                                 foreach (var id in ids)
                                 {
-                                    if (sid.IntID == id.Value)
+                                    if (sid.IntID == id.IntegerValue)
                                     {
                                         areElementsFoundForThisNode = true;
                                         break;
@@ -590,14 +590,14 @@ namespace RevitServices.Persistence
         {
             //Get the Autodesk.Revit.Element.
             Element el;
-            DocumentManager.Instance.CurrentDBDocument.TryGetElement(new ElementId(elementId),
+            DocumentManager.Instance.CurrentDBDocument.TryGetElement(new ElementId((int)elementId),
                 out el);
 
             //Get the Revit Element wrapper.
             if (el != null)
             {
                 dynamic elem =
-                    ElementIDLifecycleManager<long>.GetInstance().GetFirstWrapper(el.Id.Value);
+                    ElementIDLifecycleManager<long>.GetInstance().GetFirstWrapper(el.Id.IntegerValue);
                 if (elem != null)
                 {
                     elem.IsFrozen = frozen;

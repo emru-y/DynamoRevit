@@ -150,7 +150,7 @@ namespace Revit.Filter
             List<ElementId> catIds = new List<ElementId>();
             foreach (Revit.Elements.Category category in categories)
             {
-                catIds.Add(new ElementId(category.Id));
+                catIds.Add(new ElementId((int)category.Id));
             }
 
             return new ParameterFilterElement(name, catIds, ruleSet);

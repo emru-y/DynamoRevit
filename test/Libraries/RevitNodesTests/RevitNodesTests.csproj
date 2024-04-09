@@ -43,16 +43,15 @@
       <HintPath>$(PACKAGESPATH)\DynamoVisualProgramming.DynamoCoreNodes\lib\net48\DSCoreNodes.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DynamoServices, Version=2.19.0.6156, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\..\..\src\packages\DynamoVisualProgramming.DynamoServices.2.19.0.6156\lib\netstandard2.0\DynamoServices.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>$(PACKAGESPATH)\NUnit\lib\nunit.framework.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ProtoGeometry">
       <HintPath>$(PACKAGESPATH)\DynamoVisualProgramming.ZeroTouchLibrary\lib\net48\ProtoGeometry.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DynamoServices">
-      <HintPath>$(PACKAGESPATH)\DynamoVisualProgramming.DynamoServices\lib\netstandard2.0\DynamoServices.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPI">
@@ -65,6 +64,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(SolutionDir)AssemblySharedInfoGenerator\AssemblySharedInfo.cs">
@@ -177,6 +177,7 @@
       <Name>RevitServices</Name>
       <Private>False</Private>
     </ProjectReference>
+    <Reference Include="System.Xml" />
     <Reference Include="TestServices">
       <HintPath>$(PACKAGESPATH)\DynamoVisualProgramming.Tests\lib\net48\TestServices.dll</HintPath>
       <Private>False</Private>
@@ -186,6 +187,12 @@
       <Name>RevitTestServices</Name>
       <Private>False</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

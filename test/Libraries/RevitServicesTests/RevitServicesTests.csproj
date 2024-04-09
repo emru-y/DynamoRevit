@@ -53,6 +53,9 @@ limitations under the License.
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DynamoServices, Version=2.19.0.6156, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\..\..\src\packages\DynamoVisualProgramming.DynamoServices.2.19.0.6156\lib\netstandard2.0\DynamoServices.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>$(PACKAGESPATH)\NUnit\lib\nunit.framework.dll</HintPath>
       <Private>False</Private>
@@ -92,6 +95,12 @@ limitations under the License.
       <Name>RevitServices</Name>
       <Private>False</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

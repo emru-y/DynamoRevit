@@ -35,6 +35,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DynamoServices, Version=2.19.0.6156, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\..\packages\DynamoVisualProgramming.DynamoServices.2.19.0.6156\lib\netstandard2.0\DynamoServices.dll</HintPath>
+    </Reference>
     <Reference Include="DynamoUtilities">
       <HintPath>$(PACKAGESPATH)\DynamoVisualProgramming.Core\lib\net48\DynamoUtilities.dll</HintPath>
       <Private>False</Private>
@@ -47,10 +50,6 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="ProtoGeometry">
       <HintPath>$(PACKAGESPATH)\DynamoVisualProgramming.ZeroTouchLibrary\lib\net48\ProtoGeometry.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DynamoServices">
-      <HintPath>$(PACKAGESPATH)\DynamoVisualProgramming.DynamoServices\lib\netstandard2.0\DynamoServices.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPI">
@@ -171,6 +170,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.en-US.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

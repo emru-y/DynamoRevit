@@ -37,13 +37,20 @@
     <EmbeddedResource Include="RevitNodesImages.resx" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="DynamoServices, Version=2.19.0.6156, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\DynamoVisualProgramming.DynamoServices.2.19.0.6156\lib\netstandard2.0\DynamoServices.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\Revit.Application.Document.GetWorksharingPath.Large.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Revit.Application.Document.GetWorksharingPath.Small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="BeforeBuild">
